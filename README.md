@@ -1,2 +1,2 @@
-# Family-Dashboard
-Family Dashboard Application
+# Dashboard
+Dashboard Application
