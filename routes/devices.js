@@ -39,4 +39,16 @@ router.get('/:deviceId', async(req, res)=>{
     }
 });
 
+/** ********************************************
+ * PATCH Endpoint to update specific device by ID
+ ******************************************** */
+router.patch('/:deviceId', async(req, res)=>{
+    try{
+        const updateDevice = await Device.findByIdAndUpdate(req.params.deviceId, { $set: req.body });
+        res.json(updateDevice);
+    }catch(err){
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
