@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 # Content of this User Story:
-- [ ] List of Content of the User Story with linked issues/Epics if created
+List of Content of the User Story with linked issues/Epics if created
 
 # Acceptance Criteria:
 - [ ] Criteria 1
