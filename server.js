@@ -18,10 +18,12 @@ const DeviceGroup = require('./models/DeviceGroup');
  */
 const deviceRoutes = require('./routes/devices');
 const deviceGroupRoutes = require('./routes/devicegroup');
+const layoutRoutes = require('./routes/layouts');
 
 app.use(express.json());
 app.use('/devices', deviceRoutes);
 app.use('/deviceGroup', deviceGroupRoutes);
+app.use('/layouts', layoutRoutes);
 
 const PORT = process.env.PORT || 3009;
 

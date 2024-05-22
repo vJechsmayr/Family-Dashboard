@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const deviceSchema = new mongoose.Schema({
+const deviceSchema = new Schema({
     deviceId: { type: String, unique: true },
     name: String,
     location: String,
