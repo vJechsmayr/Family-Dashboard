@@ -51,4 +51,19 @@ router.patch('/:deviceId', async(req, res)=>{
     }
 });
 
+/** ********************************************
+ * DELETE Endpoint to remove a specific device by ID
+ ******************************************** */
+router.delete('/:deviceId', async(req, res)=>{
+    try{
+        const device = await Device.findOneAndDelete( { deviceId: req.params.deviceId });
+        if(!device){
+            return res.status(404).json({ message: 'Device not found!'});
+        }
+        res.status(200).json({ message: 'Device deleted successfully!' });
+    }catch(err){
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = router;
