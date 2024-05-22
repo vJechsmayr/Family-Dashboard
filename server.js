@@ -11,32 +11,19 @@ const app = express();
  * Models
  */
 const Device = require('./models/Device');
+const DeviceGroup = require('./models/DeviceGroup');
 
 /**
  * Routes
  */
 const deviceRoutes = require('./routes/devices');
+const deviceGroupRoutes = require('./routes/devicegroup');
 
 app.use(express.json());
 app.use('/devices', deviceRoutes);
+app.use('/deviceGroup', deviceGroupRoutes);
 
 const PORT = process.env.PORT || 3009;
-
-
-/* *************************************************************
-*  Helpers
-****************************************************************/
-const sendResponse = function(origin, res, success, code, message, data){
-    res.status(code).json({
-        success: success, message: message, data: data
-    });
-
-    if(success){
-        logger.info(origin + ' - ' + message);
-    }else{
-        logger.error(origin + ' - ' + message);
-    }
-};
 
 /* *************************************************************
 *  RSS Parser
@@ -49,12 +36,11 @@ const bbcNews = 'https://feeds.bbci.co.uk/news/rss.xml';
 /* *************************************************************
 *  Routes
 ****************************************************************/
-app.get('', async(req, res)=>{
+app.get('/', async(req, res)=>{
     try{
-
+        res.json("Hello World!");
     }catch(err){
-        //res.status(500).json({ message: "Failed to fetch data!", error: err.message });
-        sendResponse('/origin', res, false, 500, "Failed to fetch data!" + err.message);
+        res.status(500).json({ message: "Failed to fetch data!", error: err.message });
     }
 });
 
